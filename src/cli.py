@@ -33,9 +33,9 @@ def parse_args():
 
 
 def main():
-    args = parse_args()
-    args.func(args)
-
+    print("Ding Dong, who's there")
+    print("The IRS")
+    print("Oh Shit")
 
 if __name__ == "__main__":
     main()
