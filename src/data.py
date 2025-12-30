@@ -1,7 +1,8 @@
 import os
 import hashlib
- 
+
 DING_DIR = ".ding"
+
 
 def init(path):
     abs_path = os.path.abspath(path)
@@ -30,7 +31,7 @@ def repo_path():
     cwd = os.getcwd()
 
     while True:
-        ding_path = os.path.join(cwd, Ding_dir)
+        ding_path = os.path.join(cwd, DING_DIR)
 
         if os.path.exists(ding_path):
             return cwd
@@ -39,7 +40,7 @@ def repo_path():
         if parent == cwd:
             break
         cwd = parent
-    
+
     return None
 
 
@@ -48,9 +49,9 @@ def hash_objects(args):
     if repo is None:
         print("error: not inside a ding repository")
         return
-    ding_path = os.path.join(repo, Ding_dir)
-        
-    objects_path= os.path.join(ding_path, "objects")
+    ding_path = os.path.join(repo, DING_DIR)
+
+    objects_path = os.path.join(ding_path, "objects")
     if not os.path.exists(objects_path):
         os.mkdir(objects_path)
 
@@ -67,5 +68,3 @@ def hash_objects(args):
     object_file_path = os.path.join(objects_path, oid)
     with open(object_file_path, "wb") as f:
         f.write(content)
-
-
